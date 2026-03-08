@@ -97,7 +97,7 @@ export default function Footer() {
               href="https://www.facebook.com/johngamershow/"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full glass-panel flex items-center justify-center hover:bg-[#E81C62] transition-colors"
+              className="w-10 h-10 rounded-full glass-panel flex items-center justify-center hover:bg-white hover:text-[#E81C62] transition-colors"
             >
               <Facebook size={18} />
             </a>
@@ -105,7 +105,7 @@ export default function Footer() {
               href="https://www.instagram.com/alternativa_cba/"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full glass-panel flex items-center justify-center hover:bg-[#E81C62] transition-colors"
+              className="w-10 h-10 rounded-full glass-panel flex items-center justify-center hover:bg-white hover:text-[#E81C62] transition-colors"
             >
               <Instagram size={18} />
             </a>
@@ -113,7 +113,7 @@ export default function Footer() {
               href="https://www.tiktok.com/@johngamershow"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full glass-panel flex items-center justify-center hover:bg-[#E81C62] transition-colors"
+              className="w-10 h-10 rounded-full glass-panel flex items-center justify-center hover:bg-white hover:text-[#E81C62] transition-colors"
             >
               <TikTok size={18} />
             </a>
