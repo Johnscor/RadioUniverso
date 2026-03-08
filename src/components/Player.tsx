@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from "react";
-import { io } from "socket.io-client";
 import {
   Play,
   Pause,
@@ -22,7 +21,6 @@ export default function Player() {
   const [volume, setVolume] = useState(1);
   const [isMuted, setIsMuted] = useState(false);
   const [metadata, setMetadata] = useState<RadioMetadata | null>(null);
-  const [listeners, setListeners] = useState(1);
   const audioRef = useRef<HTMLAudioElement>(null);
 
   // Placeholder stream URL
@@ -57,18 +55,6 @@ export default function Player() {
     // Poll every 10 seconds
     const interval = setInterval(fetchMetadata, 10000);
     return () => clearInterval(interval);
-  }, []);
-
-  useEffect(() => {
-    const socket = io();
-
-    socket.on("listenersCount", (count: number) => {
-      setListeners(count);
-    });
-
-    return () => {
-      socket.disconnect();
-    };
   }, []);
 
   const togglePlay = () => {
@@ -119,9 +105,8 @@ export default function Player() {
             <span className="w-2 h-2 rounded-full bg-[#E81C62] animate-pulse"></span>
             AO VIVO
           </div>
-          <div className="flex items-center gap-1 text-white/60">
-            <Users size={14} />
-            <span>{listeners} {listeners === 1 ? "ouvinte" : "ouvintes"}</span>
+          <div className="flex items-center gap-1 text-white/90 font-semibold">
+            {!isPlaying && <span className="animate-pulse">Aperte o Play!</span>}
           </div>
         </div>
 
