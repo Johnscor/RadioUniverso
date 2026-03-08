@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-dark: #1a0b2e;
+  --color-brand-purple: #3b1054;
+  --color-brand-pink: #e81c62;
+  --color-brand-light: #f3e8ff;
+}
+
+body {
+  background-color: var(--color-brand-dark);
+  color: white;
+  font-family: "Inter", sans-serif;
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Basic animations for modals */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-in.fade-in {
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+.animate-in.zoom-in {
+  animation: zoomIn 0.2s ease-out forwards;
+}
