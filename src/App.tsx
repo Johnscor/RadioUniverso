@@ -23,11 +23,12 @@ export default function App() {
       });
     };
 
-    const loadBackground = async () => {
+    const loadBackground = async (isPortrait: boolean) => {
       const formats = ['png', 'jpg', 'svg'];
+      const baseName = isPortrait ? 'bgvertical' : 'bg';
       for (const format of formats) {
         try {
-          const url = `/assets/images/bg.${format}`;
+          const url = `/assets/images/${baseName}.${format}`;
           await tryLoadImage(url);
           setBgImage(url);
           return; // Stop if successful
@@ -37,7 +38,17 @@ export default function App() {
       }
     };
 
-    loadBackground();
+    const handleResize = () => {
+      const isPortrait = window.innerHeight > window.innerWidth;
+      loadBackground(isPortrait);
+    };
+
+    // Initial load
+    handleResize();
+
+    // Listen for window resize
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   useEffect(() => {
